@@ -42,22 +42,22 @@ Relevant scripts and data for the paper entitled "[**Quantum-Based Self-Attentio
 * [**Dependencies**](#Dependencies)
 
 ## Main work
-Quantum kernel methods have emerged as a promising direction in quantum machine learning (QML), offering a principled way to map classical data into high-dimensional quantum Hilbert spaces. While conceptually powerful, designing effective quantum kernels that adapt to both the target task and the constraints of near-term quantum hardware remains a nontrivial challenge. In this work, we propose HaQGNN, a hardware-aware quantum kernel design framework that integrates quantum device topology, noise characteristics, and graph neural networks (GNNs) to evaluate and select task-relevant quantum circuits. By predicting surrogate metrics related to fidelity and kernel performance, HaQGNN enables efficient circuit screening at scale. Feature selection is further incorporated to improve compatibility with limited-qubit systems and mitigate kernel degradation. Extensive experiments on three benchmark datasets, Credit Card, MNIST-5, and FMNIST-4, demonstrate that HaQGNN outperforms existing quantum kernel baselines in terms of classification accuracy. Our work highlights the potential of learning-based and hardware-aware strategies for advancing practical quantum kernel design on NISQ devices.
+The automated design of parameterized quantum circuits for variational algorithms in the NISQ era faces a fundamental limitation, as conventional differentiable architecture search relies on classical models that fail to adequately represent quantum gate interactions under hardware noise. We introduce the Quantum-Based Self-Attention for Differentiable Quantum Architecture Search (QBSA-DQAS), a meta-learning framework featuring quantum-based self-attention and hardware-aware multi-objective search. The framework employs a two-stage quantum self-attention module that computes contextual dependencies by mapping architectural parameters through parameterized quantum circuits, replacing classical similarity metrics with quantum-derived attention scores, then applies position-wise quantum transformations for feature enrichment. Architecture search is guided by a task-agnostic multi-objective function jointly optimizing noisy expressibility and Probability of Successful Trials (PST). A post-search optimization stage applies gate commutation, fusion, and elimination to reduce circuit complexity. Experimental validation demonstrates superior performance on VQE tasks and large-scale Wireless Sensor Networks. For VQE on H2, QBSA-DQAS achieves 0.9 accuracy compared to 0.89 for standard DQAS. Post-search optimization reduces discovered circuit complexity by up to 44% in gate count and 47% in depth without accuracy degradation. The framework maintains robust performance across three molecules and five IBM quantum hardware noise models. For WSN routing, discovered circuits achieve 8.6% energy reduction versus QAOA and 40.7% versus classical greedy methods, establishing the effectiveness of quantum-native architecture search for NISQ applications.
 
 <p align="center">
-<img src="https://cdn.jsdelivr.net/gh/QUANTUM-AND-ML/Quantum-Kernel-Design@main/figures/figure_3a.png" alt="Figure 1" width="800">
+<img src="https://cdn.jsdelivr.net/gh/QUANTUM-AND-ML/QBSA-DQAS@main/figures/figure_3a.png" alt="Figure 1" width="800">
 </p>
 
 **Figure 1.** An overview of hardware-aware quantum kernel design.
 
 <p align="center">
-<img src="https://cdn.jsdelivr.net/gh/QUANTUM-AND-ML/Quantum-Kernel-Design@main/figures/figure_3b1.png" alt="Figure 2" width="650">
+<img src="https://cdn.jsdelivr.net/gh/QUANTUM-AND-ML/QBSA-DQAS@main/figures/figure_3b1.png" alt="Figure 2" width="650">
 </p>
 
 **Figure 2.** Subgraphs with $N=4,5,7$ and $8$ selected from the 133-qubit IBM Torino topology.
 
 <p align="center">
-<img src="https://cdn.jsdelivr.net/gh/QUANTUM-AND-ML/Quantum-Kernel-Design@main/figures/figure_3d.png" alt="Figure 2" width="800">
+<img src="https://cdn.jsdelivr.net/gh/QUANTUM-AND-ML/QBSA-DQAS@main/figures/figure_3d.png" alt="Figure 2" width="800">
 </p>
 
 **Figure 3.** The architectures of the GNN-1 and GNN-2.
@@ -66,13 +66,13 @@ Quantum kernel methods have emerged as a promising direction in quantum machine 
 
 
 <p align="center">
-<img src="https://cdn.jsdelivr.net/gh/QUANTUM-AND-ML/Quantum-Kernel-Design@main/figures/figure_4c.png" alt="Figure 3" width="500">
+<img src="https://cdn.jsdelivr.net/gh/QUANTUM-AND-ML/QBSA-DQAS@main/figures/figure_4c.png" alt="Figure 3" width="500">
 </p>
 
 **Figure 4.** Comparison of runtime of prediction and direct calculation for PST and KTA.
 
 <p align="center">
-<img src="https://cdn.jsdelivr.net/gh/QUANTUM-AND-ML/Quantum-Kernel-Design@main/figures/figure_4e.png" alt="Figure 4" width="800">
+<img src="https://cdn.jsdelivr.net/gh/QUANTUM-AND-ML/QBSA-DQAS@main/figures/figure_4e.png" alt="Figure 4" width="800">
 </p>
 
 **Figure 5.** Classification accuracy of different methods on the MNIST-5 classification task under noisy simulation.
